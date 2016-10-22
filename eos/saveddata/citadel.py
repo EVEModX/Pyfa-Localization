@@ -1,3 +1,4 @@
+#coding: UTF-8
 #===============================================================================
 # Copyright (C) 2010 Diego Duclos
 #
@@ -29,7 +30,7 @@ logger = logging.getLogger(__name__)
 class Citadel(Ship):
 
     def validate(self, item):
-        if item.category.name != "Structure":
+        if item.category.name != "建筑":
             raise ValueError('Passed item "%s" (category: (%s)) is not under Structure category'%(item.name, item.category.name))
 
     def __deepcopy__(self, memo):

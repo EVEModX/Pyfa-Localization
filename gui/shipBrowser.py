@@ -1,3 +1,4 @@
+#coding: UTF-8
 import wx
 import copy
 from gui.bitmapLoader import BitmapLoader
@@ -701,10 +702,10 @@ class ShipBrowser(wx.Panel):
             self.Layout()
 
     RACE_ORDER = [
-        "amarr", "caldari", "gallente", "minmatar",
-        "sisters", "ore",
-        "serpentis", "angel", "blood", "sansha", "guristas", "mordu",
-        "jove", "upwell", None
+        "艾玛帝国", "加达里合众国", "盖伦特联邦", "米玛塔尔共和国",
+        "EVE姐妹共济会", "联合矿业",
+        "天蛇集团", "天使企业联合体", "血袭者同盟", "萨沙共和国", "古斯塔斯海盗", "莫德团",
+        "朱庇特帝国", "昇威集团", None
     ]
 
     def raceNameKey(self, ship):

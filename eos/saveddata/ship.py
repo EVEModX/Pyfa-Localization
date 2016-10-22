@@ -1,3 +1,4 @@
+#coding: UTF-8
 #===============================================================================
 # Copyright (C) 2010 Diego Duclos
 #
@@ -60,7 +61,7 @@ class Ship(ItemAttrShortcut, HandledItem):
         self.commandBonus = 0
 
     def validate(self, item):
-        if item.category.name != "Ship":
+        if item.category.name != "舰船":
             raise ValueError('Passed item "%s" (category: (%s)) is not under Ship category'%(item.name, item.category.name))
 
     @property
@@ -87,7 +88,7 @@ class Ship(ItemAttrShortcut, HandledItem):
                 # skillbook modifiers will use the stale modifier value
                 # GH issue #351
                 fit.register(self)
-                effect.handler(fit, self, ("ship",))
+                effect.handler(fit, self, ("舰船",))
 
     def validateModeItem(self, item):
         """ Checks if provided item is a valid mode """

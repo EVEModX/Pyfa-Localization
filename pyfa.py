@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#coding: utf-8
 #===============================================================================
 # Copyright (C) 2010 Diego Duclos
 #
@@ -23,6 +24,8 @@ import re
 import config
 
 from optparse import OptionParser, BadOptionError, AmbiguousOptionError
+reload(sys)
+sys.setdefaultencoding('utf8')  
 
 class PassThroughOptionParser(OptionParser):
     """
@@ -47,6 +50,7 @@ parser.add_option("-t", "--title", action="store", dest="title", help="Set Windo
 parser.add_option("-s", "--savepath", action="store", dest="savepath", help="Set the folder for savedata", default=None)
 
 (options, args) = parser.parse_args()
+
 
 if not hasattr(sys, 'frozen'):
 

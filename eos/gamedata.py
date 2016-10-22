@@ -1,3 +1,4 @@
+#encoding: UTF-8
 #===============================================================================
 # Copyright (C) 2010 Diego Duclos
 #
@@ -270,19 +271,19 @@ class Item(EqBase):
         return self.__requiredSkills
 
     factionMap = {
-        500001: "caldari",
-        500002: "minmatar",
-        500003: "amarr",
-        500004: "gallente",
-        500005: "jove",
-        500010: "guristas",
-        500011: "angel",
-        500012: "blood",
-        500014: "ore",
-        500016: "sisters",
-        500018: "mordu",
-        500019: "sansha",
-        500020: "serpentis"
+        500001: "加达里合众国",
+        500002: "米玛塔尔共和国",
+        500003: "艾玛帝国",
+        500004: "盖伦特联邦",
+        500005: "朱庇特帝国",
+        500010: "古斯塔斯海盗",
+        500011: "天使企业联合体",
+        500012: "血袭者同盟",
+        500014: "联合矿业",
+        500016: "EVE姐妹共济会",
+        500018: "莫德团",
+        500019: "萨沙共和国",
+        500020: "天蛇集团"
     }
 
     @property
@@ -290,26 +291,26 @@ class Item(EqBase):
         if self.__race is None:
 
             try:
-                if self.category.categoryName == 'Structure':
-                    self.__race = "upwell"
+                if self.category.categoryName == '建筑':
+                    self.__race = "昇威集团"
                 else:
                     self.__race = self.factionMap[self.factionID]
             # Some ships (like few limited issue ships) do not have factionID set,
             # thus keep old mechanism for now
             except KeyError:
                 # Define race map
-                map = {1: "caldari",
-                       2: "minmatar",
-                       4: "amarr",
-                       5: "sansha", # Caldari + Amarr
-                       6: "blood", # Minmatar + Amarr
-                       8: "gallente",
-                       9: "guristas", # Caldari + Gallente
-                       10: "angelserp", # Minmatar + Gallente, final race depends on the order of skills
-                       12: "sisters", # Amarr + Gallente
-                       16: "jove",
-                       32: "sansha", # Incrusion Sansha
-                       128: "ore"}
+                map = {1: "加达里合众国",
+                       2: "米玛塔尔共和国",
+                       4: "艾玛帝国",
+                       5: "萨沙共和国", # Caldari + Amarr
+                       6: "血袭者同盟", # Minmatar + Amarr
+                       8: "盖伦特联邦",
+                       9: "古斯塔斯海盗", # Caldari + Gallente
+                       10: "天使企业联合体", # Minmatar + Gallente, final race depends on the order of skills
+                       12: "EVE姐妹共济会", # Amarr + Gallente
+                       16: "朱庇特帝国",
+                       32: "萨沙入侵", # Incrusion Sansha
+                       128: "联合矿业"}
                 # Race is None by default
                 race = None
                 # Check primary and secondary required skills' races
@@ -317,11 +318,11 @@ class Item(EqBase):
                     skillRaces = tuple(filter(lambda rid: rid, (s.raceID for s in tuple(self.requiredSkills.keys()))))
                     if sum(skillRaces) in map:
                         race = map[sum(skillRaces)]
-                        if race == "angelserp":
+                        if race == "天使企业联合体":
                             if skillRaces == (2, 8):
-                                race = "angel"
+                                race = "天使企业联合体"
                             else:
-                                race = "serpentis"
+                                race = "天蛇集团"
                 # Rely on item's own raceID as last resort
                 if race is None:
                     race = map.get(self.raceID, None)

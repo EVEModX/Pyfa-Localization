@@ -1,3 +1,4 @@
+#encoding: UTF-8
 #===============================================================================
 # Copyright (C) 2010 Diego Duclos
 #
@@ -59,29 +60,29 @@ class AdditionsPane(TogglePanel):
         cargoImg = BitmapLoader.getImage("cargo_small", "gui")
 
         self.drone = DroneView(self.notebook)
-        self.notebook.AddPage(self.drone, "Drones", tabImage = droneImg, showClose = False)
+        self.notebook.AddPage(self.drone, u"无人机", tabImage = droneImg, showClose = False)
 
         self.fighter = FighterView(self.notebook)
-        self.notebook.AddPage(self.fighter, "Fighters", tabImage = fighterImg, showClose = False)
+        self.notebook.AddPage(self.fighter, u"铁骑舰载机", tabImage = fighterImg, showClose = False)
 
         self.cargo = CargoView(self.notebook)
-        self.notebook.AddPage(self.cargo, "Cargo", tabImage = cargoImg, showClose = False)
+        self.notebook.AddPage(self.cargo, u"货仓", tabImage = cargoImg, showClose = False)
 
         self.implant = ImplantView(self.notebook)
-        self.notebook.AddPage(self.implant, "Implants", tabImage = implantImg, showClose = False)
+        self.notebook.AddPage(self.implant, u"植入体", tabImage = implantImg, showClose = False)
 
         self.booster = BoosterView(self.notebook)
-        self.notebook.AddPage(self.booster, "Boosters", tabImage = boosterImg, showClose = False)
+        self.notebook.AddPage(self.booster, u"增效剂", tabImage = boosterImg, showClose = False)
 
         self.projectedPage = ProjectedView(self.notebook)
-        self.notebook.AddPage(self.projectedPage, "Projected", tabImage = projectedImg, showClose = False)
+        self.notebook.AddPage(self.projectedPage, u"投射", tabImage = projectedImg, showClose = False)
 
         self.gangPage = GangView(self.notebook)
-        self.notebook.AddPage(self.gangPage, "Fleet", tabImage = gangImg, showClose = False)
+        self.notebook.AddPage(self.gangPage, u"舰队", tabImage = gangImg, showClose = False)
 
         self.notebook.SetSelection(0)
 
-    PANES = ["Drones", "Fighters", "Cargo", "Implants", "Boosters", "Projected", "Fleet"]
+    PANES = [u"无人机", u"铁骑舰载机", u"货仓", u"植入体", u"增效剂", u"投射", u"舰队"]
     def select(self, name):
         self.notebook.SetSelection(self.PANES.index(name))
 

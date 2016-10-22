@@ -1,3 +1,4 @@
+#coding: UTF-8
 #===============================================================================
 # Copyright (C) 2010 Diego Duclos
 #
@@ -72,7 +73,7 @@ def getItem(lookfor, eager=None):
         if eager is None:
             item = gamedata_session.query(Item).get(lookfor)
         else:
-            item = gamedata_session.query(Item).options(*processEager(eager)).filter(Item.ID == lookfor).first()
+            item = gamedata_session.query(Item).options(*processEager(eager)).filter(Item.ID == unicode(lookfor)).first()
     elif isinstance(lookfor, basestring):
         if lookfor in itemNameMap:
             id = itemNameMap[lookfor]
@@ -82,7 +83,8 @@ def getItem(lookfor, eager=None):
                 item = gamedata_session.query(Item).options(*processEager(eager)).filter(Item.ID == id).first()
         else:
             # Item names are unique, so we can use first() instead of one()
-            item = gamedata_session.query(Item).options(*processEager(eager)).filter(Item.name == lookfor).first()
+            
+            item = gamedata_session.query(Item).options(*processEager(eager)).filter(Item.name == unicode(lookfor)).first()
             itemNameMap[lookfor] = item.ID
     else:
         raise TypeError("Need integer or string as argument")
@@ -127,8 +129,12 @@ def getCategory(lookfor, eager=None):
             else:
                 category = gamedata_session.query(Category).options(*processEager(eager)).filter(Category.ID == id).first()
         else:
+            print(gamedata_session.query(Category).options(*processEager(eager)).filter(Category.name == unicode(lookfor)))
+            print(lookfor)
             # Category names are unique, so we can use first() instead of one()
-            category = gamedata_session.query(Category).options(*processEager(eager)).filter(Category.name == lookfor).first()
+            category = gamedata_session.query(Category).options(*processEager(eager)).filter(Category.name == unicode(lookfor)).first()
+            
+            
             categoryNameMap[lookfor] = category.ID
     else:
         raise TypeError("Need integer or string as argument")

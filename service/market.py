@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #===============================================================================
 # Copyright (C) 2010 Diego Duclos
 #
@@ -179,46 +180,46 @@ class Market():
         # Limited edition ships
         self.les_grp = eos.types.Group()
         self.les_grp.ID = -1
-        self.les_grp.name = "Limited Issue Ships"
+        self.les_grp.name = "特别版舰船"
         self.les_grp.published = True
-        ships = self.getCategory("Ship")
+        ships = self.getCategory("舰船")
         self.les_grp.category = ships
         self.les_grp.categoryID = ships.ID
         self.les_grp.description = ""
         self.les_grp.icon = None
         self.ITEMS_FORCEGROUP = {
-            "Opux Luxury Yacht": self.les_grp, # One of those is wedding present at CCP fanfest, another was hijacked from ISD guy during an event
-            "Silver Magnate": self.les_grp,  # Amarr Championship prize
-            "Gold Magnate": self.les_grp,  # Amarr Championship prize
-            "Armageddon Imperial Issue": self.les_grp,  # Amarr Championship prize
-            "Apocalypse Imperial Issue": self.les_grp, # Amarr Championship prize
-            "Guardian-Vexor": self.les_grp, # Illegal rewards for the Gallente Frontier Tour Lines event arc
-            "Megathron Federate Issue": self.les_grp, # Reward during Crielere event
-            "Raven State Issue": self.les_grp,  # AT4 prize
-            "Tempest Tribal Issue": self.les_grp, # AT4 prize
-            "Apotheosis": self.les_grp, # 5th EVE anniversary present
-            "Zephyr": self.les_grp, # 2010 new year gift
-            "Primae": self.les_grp, # Promotion of planetary interaction
-            "Freki": self.les_grp, # AT7 prize
-            "Mimir": self.les_grp, # AT7 prize
-            "Utu": self.les_grp, # AT8 prize
-            "Adrestia": self.les_grp, # AT8 prize
-            "Echelon": self.les_grp, # 2011 new year gift
-            "Malice": self.les_grp, # AT9 prize
-            "Vangel": self.les_grp, # AT9 prize
-            "Cambion": self.les_grp, # AT10 prize
-            "Etana": self.les_grp, # AT10 prize
-            "Chremoas": self.les_grp, # AT11 prize :(
-            "Moracha": self.les_grp, # AT11 prize
-            "Stratios Emergency Responder": self.les_grp, # Issued for Somer Blink lottery
-            "Miasmos Quafe Ultra Edition": self.les_grp, # Gift to people who purchased FF HD stream
-            "InterBus Shuttle": self.les_grp,
-            "Leopard": self.les_grp, # 2013 new year gift
-            "Whiptail": self.les_grp, # AT12 prize
-            "Chameleon": self.les_grp, # AT12 prize
-            "Victorieux Luxury Yacht":  self.les_grp,  # Worlds Collide prize \o/ chinese getting owned
-            "Imp": self.les_grp,  # AT13 prize
-            "Fiend": self.les_grp,  # AT13 prize
+            "奥普克斯级豪华游轮": self.les_grp, # One of those is wedding present at CCP fanfest, another was hijacked from ISD guy during an event
+            "白银富豪级": self.les_grp,  # Amarr Championship prize
+            "黄金富豪级": self.les_grp,  # Amarr Championship prize
+            "末日沙场级帝国型": self.les_grp,  # Amarr Championship prize
+            "灾难级帝国型": self.les_grp, # Amarr Championship prize
+            "狂怒守卫者级": self.les_grp, # Illegal rewards for the Gallente Frontier Tour Lines event arc
+            "万王宝座级联邦型": self.les_grp, # Reward during Crielere event
+            "乌鸦级政府型": self.les_grp,  # AT4 prize
+            "狂暴级部族型": self.les_grp, # AT4 prize
+            "神圣穿梭机": self.les_grp, # 5th EVE anniversary present
+            "微风级": self.les_grp, # 2010 new year gift
+            "元始级": self.les_grp, # Promotion of planetary interaction
+            "暴狼级": self.les_grp, # AT7 prize
+            "弥米尔级": self.les_grp, # AT7 prize
+            "乌图级": self.les_grp, # AT8 prize
+            "复仇女神级": self.les_grp, # AT8 prize
+            "梯队级": self.les_grp, # 2011 new year gift
+            "恶意级": self.les_grp, # AT9 prize
+            "传道者级": self.les_grp, # AT9 prize
+            "魔裔级": self.les_grp, # AT10 prize
+            "伊塔那级": self.les_grp, # AT10 prize
+            "克雷默斯级": self.les_grp, # AT11 prize :(
+            "莫拉查级": self.les_grp, # AT11 prize
+            "斯特修斯级应急反应型": self.les_grp, # Issued for Somer Blink lottery
+            "米亚莫斯级酷菲特强版": self.les_grp, # Gift to people who purchased FF HD stream
+            "星际捷运穿梭机": self.les_grp,
+            "美洲豹级": self.les_grp, # 2013 new year gift
+            "长尾蜥级": self.les_grp, # AT12 prize
+            "变色龙级": self.les_grp, # AT12 prize
+            "凯旋奢华游艇":  self.les_grp,  # Worlds Collide prize \o/ chinese getting owned
+            "小鬼级": self.les_grp,  # AT13 prize
+            "恶魔级": self.les_grp,  # AT13 prize
         }
 
         self.ITEMS_FORCEGROUP_R = self.__makeRevDict(self.ITEMS_FORCEGROUP)
@@ -227,26 +228,26 @@ class Market():
 
         # List of items which are forcibly published or hidden
         self.ITEMS_FORCEPUBLISHED = {
-            "Data Subverter I": False, # Not used in EVE, probably will appear with Dust link
+            "数据破坏仪 I": False, # Not used in EVE, probably will appear with Dust link
             "QA Cross Protocol Analyzer": False, # QA modules used by CCP internally
-            "QA Damage Module": False,
-            "QA ECCM": False,
-            "QA Immunity Module": False,
-            "QA Multiship Module - 10 Players": False,
-            "QA Multiship Module - 20 Players": False,
-            "QA Multiship Module - 40 Players": False,
-            "QA Multiship Module - 5 Players": False,
-            "QA Remote Armor Repair System - 5 Players": False,
-            "QA Shield Transporter - 5 Players": False,
-            "Goru's Shuttle": False,
-            "Guristas Shuttle": False,
-            "Mobile Decoy Unit": False,  # Seems to be left over test mod for deployables
-            "Tournament Micro Jump Unit": False,  # Normally seen only on tournament arenas
-            "Council Diplomatic Shuttle": False,  # CSM X celebration
-            "Civilian Gatling Railgun": True,
-            "Civilian Gatling Pulse Laser": True,
-            "Civilian Gatling Autocannon": True,
-            "Civilian Light Electron Blaster": True,
+            "QA测试伤害模块": False,
+            "QA测试ECCM": False,
+            "QA测试免疫装备": False,
+            "QA测试多舰船模块 - 10个玩家": False,
+            "QA测试多舰船模块 - 20个玩家": False,
+            "QA测试多舰船模块 - 40个玩家": False,
+            "QA测试多舰船模块 - 5个玩家": False,
+            "QA测试远程装甲维修系统  - 5个玩家": False,
+            "QA测试护盾传输装置 - 5个玩家": False,
+            "高鲁的穿梭机": False,
+            "古斯塔斯穿梭机": False,
+            "移动式诱捕装置": False,  # Seems to be left over test mod for deployables
+            "锦标赛微型跳跃装置": False,  # Normally seen only on tournament arenas
+            "议会外交穿梭机": False,  # CSM X celebration
+            "民用加特林磁轨炮": True,
+            "民用加特林脉冲激光炮": True,
+            "民用加特林自动加农炮": True,
+            "民用轻型电子疾速炮": True,
         }
 
         # do not publish ships that we convert
@@ -258,22 +259,22 @@ class Market():
             # Cannot use GROUPS_FORCEPUBLISHED as this does not force items
             # within group to be published, but rather for the group itself
             # to show up on ship list
-            group = self.getGroup("Ship Modifiers", eager="items")
+            group = self.getGroup("改装件", eager="items")
             for item in group.items:
                 self.ITEMS_FORCEPUBLISHED[item.name] = True
 
         # List of groups which are forcibly published
         self.GROUPS_FORCEPUBLISHED = {
-            "Prototype Exploration Ship": False } # We moved the only ship from this group to other group anyway
+            "考察船原型": False } # We moved the only ship from this group to other group anyway
 
         # Dictionary of items with forced meta groups, uses following format:
         # Item name: (metagroup name, parent type name)
         self.ITEMS_FORCEDMETAGROUP = {
-            "'Habitat' Miner I": ("Storyline", "Miner I"),
-            "'Wild' Miner I": ("Storyline", "Miner I"),
-            "Medium Nano Armor Repair Unit I": ("Tech I", "Medium Armor Repairer I"),
-            "Large 'Reprieve' Vestment Reconstructer I": ("Storyline", "Large Armor Repairer I"),
-            "Khanid Navy Torpedo Launcher": ("Faction", "Torpedo Launcher I"),}
+            "栖息采矿器 I": ("故事线", "采矿器 I"),
+            "野性采矿器 I": ("故事线", "采矿器 I"),
+            "中型纳米装甲维修组件 I": ("一级科技", "中型装甲维修器 I"),
+            "大型回光外壳重塑装置 I": ("故事线", "大型装甲维修器 I"),
+            "卡尼迪海军鱼雷发射器": ("势力", "鱼雷发射器 I"),}
         # Parent type name: set(item names)
         self.ITEMS_FORCEDMETAGROUP_R = {}
         for item, value in self.ITEMS_FORCEDMETAGROUP.items():
@@ -284,38 +285,38 @@ class Market():
         # Dictionary of items with forced market group (service assumes they have no
         # market group assigned in db, otherwise they'll appear in both original and forced groups)
         self.ITEMS_FORCEDMARKETGROUP = {
-            "'Alpha' Data Analyzer I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
-            "'Codex' Data Analyzer I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
-            "'Daemon' Data Analyzer I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
-            "'Libram' Data Analyzer I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
-            "Advanced Cerebral Accelerator": 977, # Implants & Boosters > Booster
-            "Civilian Damage Control": 615, # Ship Equipment > Hull & Armor > Damage Controls
-            "Civilian EM Ward Field": 1695, # Ship Equipment > Shield > Shield Hardeners > EM Shield Hardeners
-            "Civilian Explosive Deflection Field": 1694, # Ship Equipment > Shield > Shield Hardeners > Explosive Shield Hardeners
-            "Civilian Hobgoblin": 837, # Drones > Combat Drones > Light Scout Drones
-            "Civilian Kinetic Deflection Field": 1693, # Ship Equipment > Shield > Shield Hardeners > Kinetic Shield Hardeners
-            "Civilian Light Missile Launcher": 640, # Ship Equipment > Turrets & Bays > Missile Launchers > Light Missile Launchers
-            "Civilian Scourge Light Missile": 920, # Ammunition & Charges > Missiles > Light Missiles > Standard Light Missiles
-            "Civilian Small Remote Armor Repairer": 1059, # Ship Equipment > Hull & Armor > Remote Armor Repairers > Small
-            "Civilian Small Remote Shield Booster": 603, # Ship Equipment > Shield > Remote Shield Boosters > Small
-            "Civilian Stasis Webifier": 683, # Ship Equipment > Electronic Warfare > Stasis Webifiers
-            "Civilian Thermic Dissipation Field": 1692, # Ship Equipment > Shield > Shield Hardeners > Thermal Shield Hardeners
-            "Civilian Warp Disruptor": 1935, # Ship Equipment > Electronic Warfare > Warp Disruptors
-            "Hardwiring - Zainou 'Sharpshooter' ZMX10": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
-            "Hardwiring - Zainou 'Sharpshooter' ZMX100": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
-            "Hardwiring - Zainou 'Sharpshooter' ZMX1000": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
-            "Hardwiring - Zainou 'Sharpshooter' ZMX11": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
-            "Hardwiring - Zainou 'Sharpshooter' ZMX110": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
-            "Hardwiring - Zainou 'Sharpshooter' ZMX1100": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
-            "Nugoehuvi Synth Blue Pill Booster": 977, # Implants & Boosters > Booster
-            "Prototype Cerebral Accelerator": 977, # Implants & Boosters > Booster
-            "Prototype Iris Probe Launcher": 712, # Ship Equipment > Turrets & Bays > Scan Probe Launchers
-            "Shadow": 1310, # Drones > Combat Drones > Fighter Bombers
-            "Sleeper Data Analyzer I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
-            "Standard Cerebral Accelerator": 977, # Implants & Boosters > Booster
-            "Talocan Data Analyzer I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
-            "Terran Data Analyzer I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
-            "Tetrimon Data Analyzer I": 714  # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
+            "阿尔法数据分析仪 I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
+            "法典数据分析仪 I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
+            "守护者数据分析仪 I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
+            "圣契数据分析仪 I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
+            "高级大脑加速器": 977, # Implants & Boosters > Booster
+            "民用损伤控制": 615, # Ship Equipment > Hull & Armor > Damage Controls
+            "民用电磁防护力场": 1695, # Ship Equipment > Shield > Shield Hardeners > EM Shield Hardeners
+            "民用爆炸偏阻力场": 1694, # Ship Equipment > Shield > Shield Hardeners > Explosive Shield Hardeners
+            "民用地精灵无人机": 837, # Drones > Combat Drones > Light Scout Drones
+            "民用动能偏阻力场": 1693, # Ship Equipment > Shield > Shield Hardeners > Kinetic Shield Hardeners
+            "民用轻型导弹发射器": 640, # Ship Equipment > Turrets & Bays > Missile Launchers > Light Missile Launchers
+            "民用鞭挞轻型导弹": 920, # Ammunition & Charges > Missiles > Light Missiles > Standard Light Missiles
+            "民用小型远程装甲维修器": 1059, # Ship Equipment > Hull & Armor > Remote Armor Repairers > Small
+            "民用小型远程护盾回充增量器": 603, # Ship Equipment > Shield > Remote Shield Boosters > Small
+            "民用停滞缠绕光束": 683, # Ship Equipment > Electronic Warfare > Stasis Webifiers
+            "民用热能发散力场": 1692, # Ship Equipment > Shield > Shield Hardeners > Thermal Shield Hardeners
+            "民用跃迁干扰器": 1935, # Ship Equipment > Electronic Warfare > Warp Disruptors
+            "神经交互强化芯片—载诺 精确射击 ZMX10": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
+            "神经交互强化芯片—载诺 精确射击 ZMX100": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
+            "神经交互强化芯片—载诺 精确射击 ZMX1000": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
+            "神经交互强化芯片—载诺 精确射击 ZMX11": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
+            "神经交互强化芯片—载诺 精确射击 ZMX110": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
+            "神经交互强化芯片—载诺 精确射击 ZMX1100": 1493, # Implants & Boosters > Implants > Skill Hardwiring > Missile Implants > Implant Slot 06
+            "纳基维合成型蓝色药丸增效体": 977, # Implants & Boosters > Booster
+            "实验级大脑加速器": 977, # Implants & Boosters > Booster
+            "彩虹女神探针发射器原型机": 712, # Ship Equipment > Turrets & Bays > Scan Probe Launchers
+            "暗影": 1310, # Drones > Combat Drones > Fighter Bombers
+            "冬眠者数据分析仪 I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
+            "标准大脑加速器": 977, # Implants & Boosters > Booster
+            "塔洛迦数据分析仪 I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
+            "地球人数据分析仪 I": 714, # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
+            "特里蒙数据分析仪 I": 714  # Ship Equipment > Electronics and Sensor Upgrades > Scanners > Data and Composition Scanners
         }
 
         self.ITEMS_FORCEDMARKETGROUP_R = self.__makeRevDict(self.ITEMS_FORCEDMARKETGROUP)
@@ -331,8 +332,8 @@ class Market():
                                      ("faction", frozenset((4, 3))),
                                      ("complex", frozenset((6,))),
                                      ("officer", frozenset((5,)))])
-        self.SEARCH_CATEGORIES = ("Drone", "Module", "Subsystem", "Charge", "Implant", "Deployable", "Fighter", "Structure", "Structure Module")
-        self.SEARCH_GROUPS = ("Ice Product",)
+        self.SEARCH_CATEGORIES = ("无人机", "装备", "子系统", "弹药", "植入体", "可部署物品", "铁骑舰载机", "建筑", "建筑装备")
+        self.SEARCH_GROUPS = ("冰矿产物",)
         self.ROOT_MARKET_GROUPS = (9,     # Modules
                                    1111,  # Rigs
                                    157,   # Drones
@@ -669,8 +670,8 @@ class Market():
         return root
 
     def getShipRoot(self):
-        cat1 = self.getCategory("Ship")
-        cat2 = self.getCategory("Structure")
+        cat1 = self.getCategory("舰船")
+        cat2 = self.getCategory("建筑")
         root = set(self.getGroupsByCategory(cat1) | self.getGroupsByCategory(cat2))
 
         return root
@@ -689,7 +690,7 @@ class Market():
 
     def searchShips(self, name):
         """Find ships according to given text pattern"""
-        filter = eos.types.Category.name.in_(["Ship", "Structure"])
+        filter = eos.types.Category.name.in_(["舰船", "建筑"])
         results = eos.db.searchItems(name, where=filter,
                                      join=(eos.types.Item.group, eos.types.Group.category),
                                      eager=("icon", "group.category", "metaGroup", "metaGroup.parent"))
